@@ -86,6 +86,27 @@ All API endpoints are prefixed with `/api`.
 | POST | `/api/tasks` | Create new task |
 | PATCH | `/api/tasks/:id` | Update task |
 
+## Frontend - Product Team Board
+
+The frontend displays a Kanban-style view of the "Product Team" board with the following structure:
+
+### Data Model
+- **Board**: Product Team (gid: 1204409512349603)
+- **Sections**: Each section becomes a column in the Kanban view
+- **First Task in Section**: Treated as "issues" - displays as the column header/card
+- **Subtasks**: When clicking on the "issues" task, all other tasks in that section are displayed as subtasks
+
+### UI Behavior
+1. Columns represent sections (e.g., "qmed", "selfkiosks", "patientapp")
+2. Each column shows the first task (named "issues") as a clickable card
+3. Clicking on an "issues" card opens a modal/drawer showing all other tasks in that section as subtasks
+4. Subtasks show: name, completion status, assignee, due date
+
+### Tech Stack
+- Vue 3 (Options API)
+- Tailwind CSS
+- TypeScript
+
 ## License
 
 MIT

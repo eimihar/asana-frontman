@@ -44,6 +44,12 @@ export const asanaService = {
     });
   },
 
+  async getSubtasks(taskId: string): Promise<any[]> {
+    return (client.tasks as any).subtasks.getSubtasks(taskId, {
+      opt_fields: 'name,notes,completed,archived,due_on,due_at,assignee,projects,tags,created_at,modified_at',
+    });
+  },
+
   // async createTask(projectId: string, data: { name: string; notes?: string; due_on?: string }) {
   //   return client.tasks.create({
   //     name: data.name,

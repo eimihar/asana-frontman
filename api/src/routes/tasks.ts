@@ -12,6 +12,15 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 });
 
+router.get('/:id/subtasks', async (req: Request, res: Response) => {
+  try {
+    const subtasks = await asanaService.getSubtasks;
+    res.json(subtasks);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // router.post('/', async (req: Request, res: Response) => {
 //   try {
 //     const { projectId, name, notes, due_on } = req.body;
